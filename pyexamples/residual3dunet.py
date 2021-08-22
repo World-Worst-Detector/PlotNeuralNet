@@ -14,17 +14,6 @@ arch = [
     to_input( '../brain-images/t1ce.png', to='(-4.0,0,0)', name="t1ce", opacity=0.6),
     to_input( '../brain-images/t2.png', to='(-3.5,0,0)', name="t2", opacity=0.6),
     to_input( '../brain-images/flair.png', to='(-3.0,0,0)', name="flair-east", opacity=0.6),
-# │    └─Encoder: 2-1                           [1, 64, 120, 120, 80]     --
-# │    │    └─ExtResNetBlock: 3-1               [1, 64, 120, 120, 80]     228,360
-# │    └─Encoder: 2-2                           [1, 128, 60, 60, 40]      --
-# │    │    └─MaxPool3d: 3-2                    [1, 64, 60, 60, 40]       --
-# │    │    └─ExtResNetBlock: 3-3               [1, 128, 60, 60, 40]      1,106,560
-# │    └─Encoder: 2-3                           [1, 256, 30, 30, 20]      --
-# │    │    └─MaxPool3d: 3-4                    [1, 128, 30, 30, 20]      --
-# │    │    └─ExtResNetBlock: 3-5               [1, 256, 30, 30, 20]      4,424,960
-# │    └─Encoder: 2-4                           [1, 512, 15, 15, 10]      --
-# │    │    └─MaxPool3d: 3-6                    [1, 256, 15, 15, 10]      --
-# │    │    └─ExtResNetBlock: 3-7               [1, 512, 15, 15, 10]      17,697,280
     *block_Encoder("b1", "", "pool_b1", s_filer="(120$\\times$120$\\times$80)", n_filer=64, offset="(1,0,0)", size=(40,40,2), maxpool=True, opacity=0.5),
     *block_Encoder("b2", "pool_b1", "pool_b2", s_filer="(60$\\times$60$\\times$40)", n_filer=128, offset="(2.5,0,0)", size=(20,20,4), maxpool=True, opacity=0.5),
     *block_Encoder("b3", "pool_b2", "pool_b3", s_filer="(30$\\times$30$\\times$20)", n_filer=256, offset="(2,0,0)", size=(10,10,8), maxpool=True, opacity=0.5),
